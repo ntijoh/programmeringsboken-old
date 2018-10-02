@@ -1,0 +1,715 @@
+= Verktyg
+
+
+
+== Variabler
+
+=== Tilldelning
+
+För att kunna använda värden (t.ex tal) i program måste man först lagra dem i en variabel.
+Att lagra ett värde i en variabel gör man med hjälp av tilldelning.
+
+En tilldelning består av tre komponenter: en `variabel`, ett `tilldelningstecken` och ett `värde`.
+
+[source, ruby, numbered]
+include::{sourcedir}/verktyg/tilldelning.rb[]
+
+<1> Utläses som "hitpoints _tilldelas_ 100".
+<2> Utläses som "name _tilldelas_ Finn the Human".
+
+== Datatyper
+
+Alla värden som lagras i en variabel är av en viss _datatyp_.
+
+Datorn måste veta vilken typ av data som är lagrad i en variabel, så den vet vad den kan göra med variabeln.
+
+Till exempel kan man addera eller dividera två tal med varandra, men det går inte att dividera ett ord.
+
+== Heltal (Integer)
+
+Integer är en datatyp som representerar heltal. I Ruby kan heltal ha vilket heltalsvärde som helst från och med negativ oändlighet till och med positiv oändlighet.
+
+I Ruby tilldelar man en variabel ett heltalsvärde genom att skriva heltalsvärdet till höger om tilldelningstecknet.
+
+.Tilldela en variabel en Integer
+[source, ruby, numbered, highlight='2-4']
+----
+...
+a_negative_number = -5 #<1>
+a_small_number = 0 #<2>
+a_large_number = 13 + 37 #<3>
+...
+----
+<1> `a_negative_number` tilldelas _minus_ 5 (heltal kan vara negativa).
+<2> `a_small_number` tilldelas 0, som är ett heltal.
+<3> `a_large_number` tilldelas resultatet av operationen (i det här fallet 50, även det ett heltal)
+
+=== Inkrementering
+
+Att öka värdet på en variabel av datatypen `Integer` kallas _inkrementering_, eller att _inkrementera_.
+
+Oftast används inkrementeringsverktyget i samband med loopar.
+
+.Två sätt att rita inkrementering i flödesschema
+image::images/verktyg/incrementation.png[två villkor]
+
+.Inkrementering som ruby-kod
+[source, ruby, numbered, highlight=4]
+----
+...
+score = 5 #<1>
+...
+score = score + 1<2>
+...
+----
+<1> För att kunna inkrementera en variabel måste den först ha tilldelats ett värde
+<2> Inkrementering. Operationen till höger om tilldelningstecknet utförs först. Resultatet tilldelas variabeln till vänster om tilldelningstecknet.
+
+=== Dekrementering
+
+Att minska värdet på en variabel av datatypen `Integer` kallas _dekrementering_, eller att _dekrementera_.
+
+Oftast används dekrementeringsverktyget i samband med loopar.
+
+.Två sätt att rita dekrementering i flödesschema
+image::images/verktyg/decrementation.png[två villkor]
+
+.Dekrementering som ruby-kod
+[source, ruby, numbered, highlight=4]
+----
+...
+score = 5 #<1>
+...
+score = score - 1<2>
+...
+----
+<1> För att kunna dekrementera en variabel måste den först ha tilldelats ett värde
+<2> Dekrementering. Operationen till höger om tilldelningstecknet utförs först. Resultatet tilldelas variabeln till vänster om tilldelningstecknet.
+
+== Sträng (String)
+
+String är datatyp som representerar en ordnad sekvens av tecken (t.ex tecken, ord, meningar, eller hela böcker).
+
+För att skapa en sträng i Ruby behöver man omge värdet man ska tilldela variabeln med `"` (uttalas _dubbelfnutt_).
+
+.Tilldela en variabel en String
+[source, ruby, numbered, highlight='2-5']
+----
+...
+first_string  = "1337" #<1>
+second_string = "An escalator can never break: it can only become stairs" #<2>
+third_string  = " " #<3>
+fourth_string = "" #<4>
+...
+----
+<1> Det kan se ut som strängen innehåller ett tal, men den innehåller i själva verket 4 tecken (tecknet ett, tecknet tre, tecknet tre och  tecknet sju).
+<2> Strängar kan innehålla alla möjliga tecken och vara hur långa som helst.
+<3> Den här strängen innehåller bara ett tecken; tecknet _mellanslag_
+<4> Den här strängen innehåller inga tecken alls; det är en _tom sträng_.
+
+=== Indexering
+
+Alla tecken i en sträng har en position, eller `index`. Det första tecknet har index 0, och det sista tecknets index är antalet tecken i strängen minus 1:
+
+image::images/verktyg/string_indices.png[]
+
+Strängen "kittens" har 7 tecken, och det största indexet är därmed 6.
+
+Man kan använda indexeringsverktyget för att ta reda på vilket tecken som finns på ett visst index i en sträng.
+
+.Indexeringsverktyget i ruby-kod
+[source, ruby, numbered]
+----
+...
+first_string  = "1337"
+second_string = "kittens"
+third_string  = " " #<3>
+fourth_string = "" #<4>
+
+first_string[3]  #=> "7" #<1>
+second_string[4] #=> "e"
+third_string[1]  #=> nil #<2>
+fourth_string[0] #=> nil #<3>
+...
+----
+<1> Observera att det är en `String`, inte en `Integer` som returneras.
+<2> Längden på strängen är 1. Alltså är sista (och första) index 0. Det finns _inget_ (`nil`) på index 1.
+<3> Det finns _inget_ i en tom sträng. Inte ens på index 0.
+
+Man kan fråga en sträng hur många tecken den innehåller genom att anropa metoden `length` eller `size`, som returnerar strängens längd.
+
+.Metoderna length och size returnerar längden på strängen
+[source, ruby, numbered]
+----
+...
+first_string  = "1337"
+second_string  = " "
+third_string = ""
+...
+first_string.length #=> 4
+first_string.size #=> 4 #<1>
+second_string.length #=> 1
+third_string.length #=> 0
+...
+----
+<1> `length` och `size` gör samma sak
+
+.Två exempel på hur indexeringsverktyget kan användas
+image::images/verktyg/indexing_string.png[]
+
+=== Konkatenering
+
+Att slå ihop, eller kombinera, två strängar kallas för _konkatenering_.
+
+Konkatenering kan t.ex användas för att skapa nya strängar, kombinera två strängar till en sträng, eller för att lägga till ett teecken i slutet av en sträng.
+
+.Konkatenering i flödesschema
+image::images/verktyg/string_concatenation.png[]
+
+.Konkatenering i ruby-kod
+[source, ruby, highlight=4-5]
+----
+...
+first_word = "banana"
+second_word = "pie"
+new_word = first_word + " " #<1>
+new_word = new_word + second_word + "!" #<2>
+----
+<1> Om man vill ha ett mellanrum mellan två konkatenerade strängar måste man lägga in det manuellt.
+<2> Först konkateneras `new_word` med `second_word`. Resultatet av konkateneringen (`"banana pie"`) konkateneras sen med `"!"`.
+
+== Uppdelning av programflödet
+
+Villkor delar upp programflödet i två möjliga vägar.
+
+Ett villkor har **en** ingång, och **två** utgångar - den ena utgången är märkt `sann` eller `true` och den andra är märkt `falskt` eller `false`.
+
+Villkor ritas som hexagoner. I hexagonen står en `jämförelseoperation`. 
+
+En jämförelseoperation består av tre delar: en `operand`, en `jämförelseoperator` och sen en till `operand`.
+
+.Två villkor i flödesschema
+image::images/verktyg/villkor.png[två villkor]
+
+.Alla tillåtna jämförelseoperationer
+[source, ruby, numbered]
+----
+number1 = 10
+number2 = 15
+
+number1 > number2 #<1>
+number1 < number2 #<2>
+number1 == number2 #<3>
+number1 != number2 #<4>
+number1 >= number2 #<5>
+number1 <= number2 #<6>
+----
+<1> => `false` - Utläses som "number1 är **större än** number2". 
+<2> => `true`{nbsp}{nbsp}{nbsp}- Utläses som "number1 är **mindre än** number2".
+<3> => `false` - Utläses som "number1 är **samma som** number2".
+<4> => `true`{nbsp}{nbsp}{nbsp}- Utläses som "number1 är **_inte_ samma som** number2".
+<5> => `false` - Utläses som "number1 är **större än _eller_ samma som** number2".
+<6> => `true`{nbsp}{nbsp}{nbsp}- Utläses som "number1 är **mindre än _eller_ samma som** number2".
+
+Beroende på om jämförelseoperationen utvärderas till `sant` eller `falskt` fortsätter programflödet genom respektive utgång.
+
+=== If
+
+Om du vill att ditt program ska göra en sak **enbart om ett villkor är sant**, kan du använda `if`.
+If-verktyget använder ett villkor, och om villkoret utvärderas till `sant` kommer något ske.
+Om villkoret **inte** utvärderas till sant kommer programflödet fortsätta efter villkoret, som om ingenting hänt.
+
+.If-verktyget i ett flödesschema
+image::images/verktyg/if.png[]
+√
+sdfdssas
+[source, ruby, numbered]
+----
+...
+if new_score > current_highscore
+    current_highscore = new_score #<1>
+end
+#<2>
+...
+----
+<1> Raderna mellan jämförelseoperationen och `end` motsvarar `true`-utgången i flödesschemat
+<2> Efter `end` fortsätter programflödet. Om villkoret är falskt hoppar programflödet direkt hit istället för att gå in i `if-satsen`.
+
+I exemplet ovan kommer `current_highscore` tilldelas `new_score` **enbart** om `new_score` är större än `current_highscore`
+
+
+[WARNING]
+====
+If-verktyget fungerar **enbart** på `true`-utången.
+
+.Felaktigt if-verktyg (operationen utförs vid `false`).
+image::images/verktyg/bad_if.png[]
+
+.Ett felaktigt if-verktyg i ruby.
+[source, ruby, numbered, highlight=2-5]
+----
+...
+if new_score <= current_highscore
+    #do nothing
+end
+current_highscore = new_score #<1>
+...
+----
+<1> Eftersom programflödet kommer hit **oavsett** om villkoret utvärderats till `true` eller `false` kommer denna rad **alltid** att köras.
+====
+
+=== If-else
+
+Om du vill att ditt program ska göra en sak **om ett villkor är sant**, **_och en annan sak om villkoret är falskt_** kan du använda `if-else`.
+
+.If-else-verktyget i ett flödesschema
+image::images/verktyg/if_else.png[]
+
+If-else börjar som en `if`, men om villkoret **inte** utvärderas till sant kommer programflödet hoppa till koden som ligger i `else-blocket`.
+
+.If-else-verktyget som ruby-kod
+[source, ruby, numbered, highlight=2-6]
+----
+...
+if number1 > number2 
+    largest = number1 #<1>
+else
+    largest = number2 #<2>
+end
+... <3>
+----
+<1> Koden mellan villkoret och `else` (`if`-blocket) körs **enbart** om villkoret är sant.
+<2> Koden mellan `else` och `end` (`else`-blocket) körs **enbart** om villkoret är falskt.
+<3> Oavsett om `if` eller `else`-blocket körts kommer programflödet fortsätta efter `end`.
+
+=== If-else-if-else
+
+Om ditt program har _fler än två_ olika saker det ska göra baserat på **olika** villkor kan du använda if-else-if-else.
+
+.If-else-if-else-verktyget i ett flödesschema
+image::images/verktyg/if_else_if_else.png[]
+
+If-else-if-else börjar som en `if`, men om villkoret **inte** utvärderas till sant kommer programflödet hoppa till och utvärdera **nästa** `elsif-block`.
+
+[source, ruby, numbered, highlight=2-10 ]
+----
+...
+if health < 10 #<1>
+    status = "very badly hurt" #<2>
+elsif health < 50 #<3>
+    status = "badly hurt" #<4>
+elsif health < 75 #<5>
+    status = "lightly hurt" #<6>
+else #<7>
+    status = "feeling fine" #<8>
+end
+... #<9>
+----
+<1> Om villkoret är falskt fortsätter programflödet direkt till nästa `elsif`.
+<2> Detta kodblock körs **enbart** om `health` är mindre än 10. Därefter hoppar programflödet **direkt** till raden efter `end`.
+<3> Om villkoret är falskt fortsätter programflödet direkt till nästa `elsif`.
+<4> Detta kodblock körs **enbart** om `health` är mindre än 50. Därefter hoppar programflödet **direkt** till raden efter `end`.
+<5> Om villkoret är falskt fortsätter programflödet direkt till `else`.
+<6> Detta kodblock körs **enbart** om `health` är mindre än 75. Därefter hoppar programflödet **direkt** till raden efter `end`.
+<7> Om **inget** av `elsif-satserna` utvärderats till true kommer programflödet hoppa till `else`.
+<8> Detta kodblock körs **enbart** om **inget** av de tidigare villkoren utvärderats till sant.
+<9> Oavsett vilket av kodblocken som körts kommer programflödet fortsätta här.
+ 
+=== Nästade eller kedjade if
+
+Om ditt program har **flera olika villkor** som måste vara uppfyllda för att något ska hända kan du använda verktyget `kedjad if`.
+
+.Kedjade-if i flödesschema
+image::images/verktyg/nested_if.png[]
+
+.Kedjade if som ruby-kod
+[source, ruby, numbered, highlight=2-14]
+----
+...
+if test_result > 95
+    if teacher_bribe > 2000
+        if teacher_mood == "great"
+            grade = "A"
+        else
+            grade = "F"
+        end
+    else
+        grade = "F"
+    end
+else
+    grade = "F"
+end
+...
+----
+
+== Upprepning av programflödet
+
+Loopar leder programflödet tillbaks tills samma ställe om och om igen, tills ett villkor har blivit uppfyllt.
+
+Loopar återanvänder symbolen för villkor, men på strecket som leder till ingången ritar vi en liten cirkel där loopen återansluter till loop-villkoret.
+
+.Två loopar
+image::images/verktyg/loopar.png[två loopar]
+
+[WARNING]
+====
+Loop-utgången **måste** ske på `true`-utången.
+
+.Felaktigt loop-verktyg (loop sker vid `false`).
+image::images/verktyg/bad_loop.png[]
+====
+
+
+=== Inkrementerande loop
+
+En inkrementerande loop passar bra att använda om du i förväg vet (eller kan räkna ut) hur många gånger programflödet behöver upprepas, t.ex. om programmet alltid ska göra något 5 gånger, eller om vet att du ska göra något lika många gånger som du har tal i en lista.
+
+Inkrementerande loopar använder sig av en _räknar-variabel_. En räknar-variabel håller koll på hur många gånger loopen upprepats. Vanliga namn på räknar-variabler är `counter`, `iterations` eller `i`, men en räknar-variabel kan heta precis vad som helst.
+
+För att en räknande loop ska fungera behöver följande steg ske:
+
+1. Innan loopen påbörjas måste man _initiera_ räknar-variabeln, det vill säga, tilldela den ett värde. I de flesta fall initierar man räknar-variabeln med värdet 0 (eftersom det är så många gånger man upprepat programflödet innan man börjar loopa).
+
+2. Räknar-variabeln används sen inne i villkoret som avgör om programflödet ska upprepas eller ej.
+
+3. Inne i loopen måste räknar-variabeln _inkrementeras_, det vill säga ökas. Om man inte ökar räknar-variabeln kommer loopen fortsätta i all evighet, eftersom loop-villkoret aldrig blir falskt.
+
+.En inkrementerande loop i flödesschema
+image::images/verktyg/incrementing_loop.png[]
+
+.Inkrementerande loop som ruby-kod
+[source, ruby, numbered, highlight=2-6]
+----
+...
+number_of_turns = 0 #<1>
+while number_of_turns < game_turn_limit #<2>
+    ... #<3>
+    number_of_turns = number_of_turns   + 1 #<4>
+end 
+... #<5>
+----
+<1> Initierar räknar-variabeln.
+<2> Så länge räknar-variabeln är mindre än `number_of_iterations` kommer loopen upprepas
+<3> Koden som ska upprepas.
+<4> Inkrementera räknarvariabeln - om man missar detta steg får man en oändlig loop.
+<5> Här fortsätter programflödet när/om loop-villkoret är falskt.
+
+=== Dekrementerande loop
+
+En dekrementerande loop har i stort sett samma användningsområde som en inkrementerande loop, det vill säga, du vet (eller kan räkna ut) hur många gånger du behöver upprepa programflödet.
+
+Skillnaden är att räknar-variabeln räknar neråt, det vill säga dekrementerar.
+
+.Dekrementerande loop i flödesschema
+image::images/verktyg/decrementing_loop.png[]
+
+.Dekrementerande loop som ruby-kod
+[source, ruby, numbered, highlight="2, 4-7"]
+----
+...
+turns_left = 6 #<1>
+...
+while turns_left > 0 #<2>
+    ... #<3>
+    turns_left = turns_left -1 #<4>
+end 
+... #<5>
+----
+<1> Initierar räknar-variabeln.
+<2> Så länge `turns_left` är större än 0 kommer loopen upprepas.
+<3> Koden som ska upprepas.
+<4> Dekrementera räknarvariabeln - om man missar detta steg får man en oändlig loop.
+<5> Här fortsätter programflödet när/om loop-villkoret är falskt.
+
+=== Loop med okänt antal iterationer
+
+Om du inte i förväg vet (eller kan räkna ut) hur många gånger programflödet ska upprepas behöver du använda en loop med brytvärde.
+
+.Loop med okänt antal iterationer
+image::images/verktyg/loop_with_sentinel_value.png[]
+
+.Loop med okänt antal iterationer
+[source, ruby, numbered, highlight=2-5]
+----
+...
+while player_health > 0 #<1>
+    ... #<2>
+    ... #<3>
+end 
+... #<4>
+----
+<1> Så länge som `player_health` är större än 0 kommer loopen upprepas.
+<2> Koden som ska upprepas. 
+<3> Någonstans i loopen måste `player_health` kunna ändras - annars blir det en oändlig loop.
+<4> Här fortsätter programflödet när/om loop-villkoret är falskt.
+
+== Funktioner
+
+=== Funktionsmaskinen
+Överallt inom programmering finns funktioner. Dessa är som maskiner där man stoppar in saker
+och får ut ett resultat.
+Det man kan stoppa in i och få ut från maskiner är data av olika datatyper,
+maskinen behandlar sedan datan på något vis och ger ett resultat med någon data och datatyp. +
+Programmerare skapar dessa maskiner och använder dem för att lösa problem.
+Alla program som du använder består av många funktioner som arbetar tillsammans.
+Det är även ett smidigt sätt att gruppera sin kod och undvika s.k. spagettikod.
+
+
+==== Exempel
+* Double
+
+.En maskin som dubblar talet man stoppar in
+image::images/verktyg/funktions_maskin_oneinput.png[] 
+
+* Starts with
+
+.En maskin som avgör man det första tecknet på det första du stoppar in är samma som det andra du stoppar in.
+image::images/verktyg/funktions_maskin_twoinput.png[] 
+
+=== Funktionsdefinition och Parametrar
+Varje funktion måste definieras med namn och input.
+Inputten läggs i variabler som kan användas inne i funktionen. Dessa variabler kallas för parametrar.
+Följande exempel visar en funktionsdefinition med en parameter.
+[cols="2*"]
+|===
+a|
+[source, ruby, numbered, highlight=2-5]
+----
+...
+def function_name(input1)<1><2><3>
+    #Inner workings of function<4>
+end<5>
+...
+----
+<1> Varje funktionsdefinition börjar med nyckelordet `def`.
+<2> `function_name` är namnet på funktionen och kan vara nästan vad som helst.
+<3> Efter namnet på funktionen följer parenteser och namnet på parametern.
+<4> Koden för funktionen skrivs här och ska indenteras.
+<5> `end` visar var koden till funktionen slutar.
+a|
+.Resultatet blir en maskin som den här
+image::images/verktyg/funktions_maskin_oneinput.png[] 
+|===
+
+=== Flera inputs
+Om en funktion har flera parametrar så avskiljer man varje parameter med ett kommatecken.
+
+==== Funktion med två inputs
+[cols="2*"]
+|===
+a|
+[source, ruby, numbered, highlight=2-5]
+----
+...
+def function_name(input1, input2)<1>
+    #Inner workings of function
+end
+...
+----
+<1> Varje parameter avskiljs med ett kommatecken
+a|
+.Resultatet blir en maskin som den här
+image::images/verktyg/funktions_maskin_twoinput.png[]
+
+|===
+==== Funktion med tre inputs
+[cols="2*"]
+|===
+a|
+[source, ruby, numbered, highlight=2-5]
+----
+...
+def function_name(input1, input2, input3)
+    #Inner workings of function
+end
+...
+----
+a|
+.Resultatet blir en maskin som den här
+image::images/verktyg/funktions_maskin_threeinput.png[]
+|===
+
+
+=== Funktioner utan input
+En funktion kan även definieras utan parametrar. Då lämnar man parentesen tom.
+
+[cols="2*"]
+|===
+a|
+[source, ruby, numbered, highlight=2-5]
+----
+...
+def function_name()
+    #Inner workings of function
+end
+...
+----
+a|
+.Resultatet blir en maskin som den här
+image::images/verktyg/funktions_maskin_noinput.png[]
+|===
+
+=== Funktionsanrop och inputdata
+Att stoppa in data i en maskin och starta den är ett funktionsanrop.
+All data som man stoppar in i funktioner måste komma någonstans ifrån. 
+Den data man stoppar in i funktionen kallas för funktionens argument.
+När man väl har data att stoppa in i funktionen så kan man anropa den.
+Detta gör man på följande sätt.
+[source, ruby, numbered, highlight=2-5]
+----
+...
+function_name(argument)
+...
+----
+Datan måste dock komma någonstans ifrån, och det finns olika sätt att få data till sina funktioner.
+
+==== Hårdkodad data
+Det vanligaste som du kommer göra är att skapa din egna data direkt i programmet.
+Detta kan du göra antingen genom att spara datan i variabler och skicka med i funktionsanropet.
+[source, ruby, numbered, highlight=2-5]
+----
+...
+argument = "Some string value"
+function_name(argument)
+...
+----
+
+eller skriva värdet direkt i funktionsanropet
+[source, ruby, numbered, highlight=2-5]
+----
+...
+function_name("Some string value")
+...
+----
+==== Data från Tangentbordet
+Man kan även låta den som kör programmet mata in data från tangentbordet.
+All data som matas in från tangentbordet är strängar och har ett "\n"-tecken i slutet som representerar ny rad.
+Så om man vill att användaren ska mata in siffror
+måste man omvandla datatypen till det man är ute efter.
+[source, ruby, numbered, highlight=2-5]
+----
+...
+argument = gets()
+function_name(argument)
+...
+----
+[WARNING]
+====
+Man bör endast använda tangentbordet för inmatning av data om det är syftet med programmet.
+t.ex ett spel eller något som kräver att användaren gör något val.
+====
+==== Data från Filer
+Man kan även läsa in data från filer och på samma sätt som från tangentbordet är all data som läses in strängar.
+
+==== Läs in hela innehållet i en fil som en sträng
+[source, ruby, numbered, highlight=2-5]
+----
+...
+file_content = File.read("path/to/file")<1><2>
+...
+----
+<1> "path/to/file" är en relativ sökväg till filen
+<2> Om filen innehåller radbrytningar kommer dessa vara ett "\n"-tecken i strängen.
+==== Läs in varje rad i en fil som en array av strängar
+[source, ruby, numbered, highlight=2-5]
+----
+...
+file_content = File.readlines("path/to/file")
+...
+----
+=== Output
+En funktion kan endast ge en output och man ska göra något med den behöver man göra något av följande när man anroper den.
+
+==== Spara resultatet i en variabel
+[source, ruby, numbered, highlight=2-5]
+----
+...
+result = function_name(argument)
+...
+----
+==== Anropa funktionen direkt där du behöver den
+I ett villkor
+[source, ruby, numbered, highlight=2-5]
+----
+...
+if function_name(argument) == "I am a tea cup"
+    #Do stuff
+end
+...
+----
+Eller skriva ut resultatet i terminalen
+[source, ruby, numbered, highlight=2-5]
+----
+...
+puts function_name(argument)
+...
+----
+
+=== Output - Return
+När du vill ge output från en funktion så använder man `return` följt av den data du vill ska komma ut.
+[source, ruby, numbered, highlight=2-5]
+----
+...
+return output
+...
+----
+
+`return` avbryter resten av funktionen och programmet fortsätter där du anropade funktionen.
+
+
+=== Komplett exempel
+* double
+
+[source, ruby, numbered, highlight=2-5]
+----
+...
+def double(num)
+    return num * 2
+end
+...
+----
+* starts_with
+
+[source, ruby, numbered, highlight=2-5]
+----
+...
+def starts_with(string, character)
+    first_character = string[0]
+    return first_character == character
+end
+...
+----
+
+== Sammansatta verktyg
+
+=== Iterativt Uppbyggd Output
+
+När man vill omvandla en sträng eller en array till en annan sträng eller array är det oftast enklast att bygga upp en *ny* sträng eller array snarare än att modifiera den ursprungliga. 
+Det gör du enklast genom att använda verktyget "Iterativt Uppbyggd Ouptut"
+
+.Iterativt Uppbyggd Output
+image::images/verktyg/iteratively_constructed_output.png[]
+
+== Funktionsanrop
+
+Ibland vill man i en del av en ny funktion använda samma funktionalitet som finns i en annan funktion.
+
+I stället för att rita samma flöde i det nya flödesschemat, eller skriva (eller kopiera in) samma kod i den nya funktionen, kan man istället anropa den funktion man behöver, inne i den nya funktionen.
+
+På så viss spar man tid och minskar risken för buggar (förutsatt att den funktion man anropar fungerar korrekt).
+
+.Funktionsanrop i flödesschema
+image::images/verktyg/function_call.png[]
+
+.Funktionsanrop i ruby-kod
+[source, ruby, numbered, highlight=4]
+----
+...
+def new_function(a_word)
+    ...
+    reversed_word = reverse(a_word) #<1>
+    ...
+end
+...
+----
+<1> Förutsatt att det faktiskt finns en funktion som heter `reverse` och som tar en sträng som indata.

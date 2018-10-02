@@ -1,0 +1,153 @@
+= Övningar
+
+== Villkor
+
+=== Smallest of two
+
+Funktionen ska ta två integers som *input* och ge det minsta av dem som *output*.
+
+==== Exempeltabell
+[width=50%]
+|===
+2+| *Input* | *Output*
+| 10 | 2 | 2
+| -1 | 0 | -1
+| 1337 | 9001 | 1337
+|===
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+smallest_of_two(10,2) #-> 2
+----
+=== Largest of three
+
+Funktionen ska ta tre integers som *input* och ge det största värdet av dem som *output*.
+
+==== Exempeltabell
+[width=50%]
+|===
+3+| *Input* | *Output*
+| 10 | 2 | 2 | 10
+| -2 | -3 | -1 | -1
+| 8 | 1337 | 0 | 1337
+|===
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+largest_of_three(10,2,2) #-> 10
+----
+
+=== Smallest of four
+
+Funktionen ska ta fyra integers som *Input* och ge det minsta värdet av dem som *output*.
+
+==== Exempeltabell
+[width=50%]
+|===
+4+| *Input* | *Output*
+| 10 | 2 | 2 | 1 | 1
+| -2 | -3 | -1 | | 10 | -3
+| 8999 | 1337 | 9001 | 1338 |1337
+|===
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+smallest_of_four(10,2,2,1) #-> 1
+----
+=== Ticket Price
+
+Funktionen ska ta en integer *age* som *Input* och ska beroende på input ge olika output som följer tabellen nedan.
+
+[width=30%]
+|===
+| *Ålder* | *Pris*
+| Under 18 | 10
+| Mellan 18 och 64 | 20
+| Över 64 | 15
+|===
+
+==== Exempeltabell
+[width=50%]
+|===
+| *Input* | *Output*
+| 10 | 10
+| 40 | 20
+| 70 | 15
+|===
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+ticket_price(10) #-> 10
+ticket_price(30) #-> 20
+ticket_price(70) #-> 15
+----
+
+== Loopar
+=== Sum
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
+=== Factorial
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
+=== Collatz
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
+=== Contains
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
+=== Count
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
+=== Reverse
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
+=== Palindrom
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
+=== Rövarspråket
+==== Exempeltabell
+| *Input* | *Output*
+
+==== Exempelkörning
+[source, ruby, numbered, highlight=4]
+----
+----
