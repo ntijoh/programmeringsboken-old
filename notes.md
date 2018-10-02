@@ -7,6 +7,7 @@
 
 ### Funktioner för standardbiblioteket
 #### Integers
+* omg
 * min/max- of two/three/four
 * add/sum_to
 * square/cube/power
