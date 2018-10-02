@@ -1,0 +1,25 @@
+= Flödesscheman
+
+== Komponenter
+
+=== Input
+
+Regler för input
+
+=== Output
+
+Regler för output
+
+=== State Change
+
+Regler för state change
+
+=== Conditions
+
+Refler för conditions
+
+image::img/flowcharts/condition.png[villkor, 400,300]
+
+=== Loops
+
+Regler för loopar

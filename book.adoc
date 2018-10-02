@@ -4,12 +4,20 @@
 :toclevels: 3
 :source-highlighter: pygments
 :includedir: includes
-:sourcedir: ../source
+:sourcedir: src/chapters
+:imagesdir: src/chapters
+:code_lang: ruby
 
 = Programmering 1
 
-include::verktyg/chapter.adoc[leveloffset=+1]
+// include::chapters/preface/chapter.adoc[leveloffset=+1]
 
-include::exercises/chapter.adoc[leveloffset=+1]
+// include::chapters/problem_solving/chapter.adoc[leveloffset=+1]
 
-include::library/chapter.adoc[leveloffset=+1]
+// include::chapters/flowcharts/chapter.adoc[leveloffset=+1]
+
+// include::chapters/code/chapter.adoc[leveloffset=+1]
+
+include::src/chapters/toolbox/chapter.adoc[leveloffset=+1]
+
+// include::chapters/assignments/chapter.adoc[leveloffset=+1]

@@ -1,0 +1,186 @@
+= Verktygslådan
+
+== Verktyg för ändring av State
+
+=== Tilldelning
+För att kunna använda värden (t.ex tal) i program måste man först lagra dem i en variabel.
+Att lagra ett värde i en variabel gör man med hjälp av tilldelning.
+
+En tilldelning består av tre komponenter: en `variabel`, ett `tilldelningstecken` och ett `värde`.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/assignment.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/assignment.rb[]
+----
+|===
+
+=== Inkrementering / Dekrementering
+
+==== Inkrementering
+Att öka värdet på en variabel av datatypen `Integer` kallas _inkrementering_, eller att _inkrementera_.
+
+Oftast används inkrementeringsverktyget i samband med loopar.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/incrementation.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+---- 
+include::code/{code_lang}/incrementation.rb[]
+----
+|===
+
+==== Dekrementering
+Att minska värdet på en variabel av datatypen `Integer` kallas _dekrementering_, eller att _dekrementera_.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/decrementation.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered] 
+----
+include::code/{code_lang}/decrementation.rb[]
+----
+|===
+Oftast används dekrementeringsverktyget i samband med loopar.
+
+// === Mellanlagring
+
+== Verktyg för uppdelning av flödet (Villkor)
+
+=== If
+Om du vill att ditt program ska göra en sak enbart om ett villkor är sant, kan du använda if. If-verktyget använder ett villkor, och om villkoret utvärderas till sant kommer något ske. Om villkoret inte utvärderas till sant kommer programflödet fortsätta efter villkoret, som om ingenting hänt.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/if.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/if.rb[]
+----
+|===
+
+
+
+=== If-Else
+Om du vill att ditt program ska göra en sak **om ett villkor är sant**, **_och en annan sak om villkoret är falskt_** kan du använda `if-else`.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/if_else.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/if_else.rb[]
+----
+|===
+
+=== If-Elseif-Else
+Om ditt program har _fler än två_ olika saker det ska göra baserat på **olika** villkor kan du använda if-else-if-else.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/if_elseif_else.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/if_elseif_else.rb[]
+----
+|===
+
+// TODO: Skapa flödesschema och kodexempel
+// === If-Else-And-Always
+
+== Verktyg för upprepning av flödet (Loopar)
+
+=== Räknande loop 
+==== Inkrementerande
+En inkrementerande loop passar bra att använda om du i förväg vet (eller kan räkna ut) hur många gånger programflödet behöver upprepas, t.ex. om programmet alltid ska göra något 5 gånger, eller om vet att du ska göra något lika många gånger som du har tal i en lista.
+
+Inkrementerande loopar använder sig av en _räknar-variabel_. En räknar-variabel håller koll på hur många gånger loopen upprepats. Vanliga namn på räknar-variabler är `counter`, `iterations` eller `i`, men en räknar-variabel kan heta precis vad som helst.
+
+För att en räknande loop ska fungera behöver följande steg ske:
+
+1. Innan loopen påbörjas måste man _initiera_ räknar-variabeln, det vill säga, tilldela den ett värde. I de flesta fall initierar man räknar-variabeln med värdet 0 (eftersom det är så många gånger man upprepat programflödet innan man börjar loopa).
+
+2. Räknar-variabeln används sen inne i villkoret som avgör om programflödet ska upprepas eller ej.
+
+3. Inne i loopen måste räknar-variabeln _inkrementeras_, det vill säga ökas. Om man inte ökar räknar-variabeln kommer loopen fortsätta i all evighet, eftersom loop-villkoret aldrig blir falskt.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/incrementing_loop.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/incrementing_loop.rb[]
+----
+|===
+
+==== Dekrementerande
+En dekrementerande loop har i stort sett samma användningsområde som en inkrementerande loop, det vill säga, du vet (eller kan räkna ut) hur många gånger du behöver upprepa programflödet.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/decrementing_loop.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/decrementing_loop.rb[]
+----
+|===
+Skillnaden är att räknar-variabeln räknar neråt, det vill säga dekrementerar.
+
+=== Okänt antal iterationer
+Om du inte i förväg vet (eller kan räkna ut) hur många gånger programflödet ska upprepas behöver du använda en loop med brytvärde.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/loop_with_sentinel_value.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/loop_with_sentinel_value.rb[]
+----
+|===
+
+// === Input Loop
+
+== Verktyg för funktioner
+
+=== Outputvariabel
+
+=== Iterativt uppbyggd output

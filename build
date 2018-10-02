@@ -1,0 +1,2 @@
+#!/bin/bash
+rerun --pattern '*{.adoc,.rb}' 'asciidoctor book.adoc -b html -o book.html'
