@@ -2,7 +2,7 @@
 :icons: font
 :toc: left
 :toclevels: 3
-:source-highlighter: highlighter.js
+:source-highlighter: pygments
 :includedir: includes
 :sourcedir: src/chapters
 :imagesdir: src/chapters
