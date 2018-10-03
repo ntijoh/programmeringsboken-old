@@ -14,7 +14,7 @@
 
 // include::chapters/problem_solving/chapter.adoc[leveloffset=+1]
 
-// include::chapters/flowcharts/chapter.adoc[leveloffset=+1]
+include::src/chapters/flowcharts/chapter.adoc[leveloffset=+1]
 
 // include::chapters/code/chapter.adoc[leveloffset=+1]
 

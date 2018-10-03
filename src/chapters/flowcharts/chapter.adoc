@@ -1,0 +1,66 @@
+= Flödesscheman
+För att modellera hur en funktionsmasking fungerar använder vi flödesscheman.
+Flödesscheman består av komponenter som antingen 
+
+* ändrar på state eller 
+* styr flödet beroende på state.
+
+Komponenterna kopplas ihop med pilar och bildar ett flöde.
+
+== Komponenter
+Alla komponenter i flödesscheman interagerar med `state` eller `input` på något vis.
+State består av variabler som indikeras med [underline]#understruken# text.
+
+=== Input
+`Input`-komponenten illustreras med en paralellogram med en liten pil till vänster.
+I rutan skrivs namnet på input så man kan referera till den som en variabel senare i flödet.
+
+[[BILD]]
+
+Om en situation kräver flera inputs separeras dessa med komma-tecken.
+
+[[BILD]]
+
+=== Output
+`Output`-komponenten illustreras också med en paralellogram fast med en retur-pil på högersidan. I rutan skrivs variabeln som innehåller värdet som ska ges som output.
+
+[[BILD]]
+
+[WARNING]
+====
+Om man i flödet når en `output`-komponent så avslutas flödet direkt.
+====
+
+=== State Change
+För att ändra på state, antingen genom att
+
+* Skapa en ny variabel, eller
+* Ändra på en befintlig variabel
+
+illustreras detta med en rektangel. I rutan skriver man på vilket sätt som variabeln ska ändras. Antingen genom att använda tilldelningstecken eller med ord beskriva vad som händer.
+
+[[BILD]]
+
+
+=== Conditions
+En `condition`-komponent illustreras med en utdragen hexagon. Den används för att dela flödet i två olika vägar. Den har alltid *en* ingång och *två* utgångar, en [green]#*true*#-utgång och en [red]#*false*#-utgång. I rutan skriver man en jämförelse mellan två variabler.
+
+image::flowcharts/img/condition.png[villkor, 400,300]
+
+[green]#*true*#-utgången går vanligtvis åt höger och [red]#*false*#-utgången går vanligtvis rakt ner.
+
+[[BILD]]
+
+=== Loops
+
+En `loop`-komponent illustreras nästan som en `condition`-komponent, egentligen är de samma sak. Skillnaden är en liten ring ovanför hexagonen och att [red]#false#-utgången vanligtvis går rakt ner. I rutan skrivs `loopvillkoret`.
+
+[[BILD]]
+
+[WARNING]
+====
+`Loopvillkoret` måste bero på något state som ändras i [green]#true#-delen, och det måste ändras på ett sätt så att `loopvillkoret` någon gång blir falskt. Annars får man en oändlig loop.
+====
+
+== Funktioner i flödesscheman
+Flödesscheman kan beskriva bara en liten del av ett program eller så kan de beskriva en hel funktion. En hel funktion beskrivs genom att flödesscheman har en `input`-komponent och en `output`-komponent.

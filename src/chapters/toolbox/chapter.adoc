@@ -182,5 +182,23 @@ include::code/{code_lang}/loop_with_sentinel_value.rb[]
 == Verktyg för funktioner
 
 === Outputvariabel
+När en funktion ska behandla `input` på något vis, och returnera någon `output` beroende på beräkningen så är en outputvariabel väldigt användbar. Outputvariabeln håller värdet på det som ska ges som output när funktionen har körts klart.
+Det krävs att outputvariabeln `initieras` med något startvärde. Startvärdet kan vara vilket värde som helst eller att att man kopierar input.
+
 
 === Iterativt uppbyggd output
+Ett vanligt användningsområdet för en `outputvariabel` är när man iterativt bygger upp en `output`.
+Detta verktyg är särskilt användbart när varje iteration beror på resultatet av iterationen innan.
+
+|===
+| `*Flödesschema*` | `*Kod*`
+
+a| 
+image::toolbox/img/iteratively_constructed_output.png[if-verktyget]  
+
+a| 
+[source, {code_lang}, numbered]
+----
+include::code/{code_lang}/iteratively_constructed_output.rb[]
+----
+|===
