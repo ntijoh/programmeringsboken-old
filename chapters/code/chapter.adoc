@@ -1,0 +1,11 @@
+= Kod och exekvering
+
+== Variabler och tilldelning
+
+== If-satser och villkor
+
+== Loopar
+
+== Funktioner
+
+== Exekvering

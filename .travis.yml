@@ -20,9 +20,15 @@ after_failure:
   - docker logs asciidoc-to-pdf
 
 after_success:      
-  - cd output ; mv book.html index.html ; cp -R ../images images
+  - find src -name '*.png' | cpio -pdm  output
+  - cd output ; mv book.html index.html
   - git init
   - git config user.name "${GH_USER_NAME}"
-  - git config user.email "${GH_USER_EMAIL}"
-  - git add . ; git commit -m "Deploy to GitHub Pages"
+<<<<<<< HEAD
+  - git config user.email "{GH_USER_EMAIL}"
+  - git add . ; git commit -m "Deploying to GitHub Pages"
+=======
+  - git config user.email "{GH_USER_EMAIL}"
+  - git add . ; git commit -m "Deploying to GitHub Pages"
+>>>>>>> version-2
   - git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
