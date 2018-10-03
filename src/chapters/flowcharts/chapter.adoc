@@ -15,16 +15,16 @@ State består av variabler som indikeras med [underline]#understruken# text.
 `Input`-komponenten illustreras med en paralellogram med en liten pil till vänster.
 I rutan skrivs namnet på input så man kan referera till den som en variabel senare i flödet.
 
-// [[BILD]]
+image::flowcharts/img/input.png[input]
 
 Om en situation kräver flera inputs separeras dessa med komma-tecken.
 
-// [[BILD]]
+image::flowcharts/img/input2.png[input]
 
 === Output
 `Output`-komponenten illustreras också med en paralellogram fast med en retur-pil på högersidan. I rutan skrivs variabeln som innehåller värdet som ska ges som output.
 
-// [[BILD]]
+image::flowcharts/img/output.png[output]
 
 [WARNING]
 ====
@@ -39,23 +39,21 @@ För att ändra på state, antingen genom att
 
 illustreras detta med en rektangel. I rutan skriver man på vilket sätt som variabeln ska ändras. Antingen genom att använda tilldelningstecken eller med ord beskriva vad som händer.
 
-// [[BILD]]
+image::flowcharts/img/state_change.png[villkor]
 
 
 === Conditions
 En `condition`-komponent illustreras med en utdragen hexagon. Den används för att dela flödet i två olika vägar. Den har alltid *en* ingång och *två* utgångar, en [green]#*true*#-utgång och en [red]#*false*#-utgång. I rutan skriver man en jämförelse mellan två variabler.
 
-image::flowcharts/img/condition.png[villkor, 400,300]
+image::flowcharts/img/condition.png[villkor]
 
 [green]#*true*#-utgången går vanligtvis åt höger och [red]#*false*#-utgången går vanligtvis rakt ner.
-
-// [[BILD]]
 
 === Loops
 
 En `loop`-komponent illustreras nästan som en `condition`-komponent, egentligen är de samma sak. Skillnaden är en liten ring ovanför hexagonen och att [red]#false#-utgången vanligtvis går rakt ner. I rutan skrivs `loopvillkoret`.
 
-// [[BILD]]
+image::flowcharts/img/loop.png[villkor]
 
 [WARNING]
 ====
