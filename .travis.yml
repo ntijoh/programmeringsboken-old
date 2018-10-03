@@ -21,6 +21,8 @@ after_failure:
 
 after_success:      
   - cd output ; mv book.html index.html
+  - cp ../src/chapters/toolbox/img/*.png img/toolbox
+  - cp ../src/chapters/flowcharts/img/*.png img/flowcharts
   - find ../src -name '*.png' | cpio -pdm  .
   - git init
   - git config user.name "${GH_USER_NAME}"
