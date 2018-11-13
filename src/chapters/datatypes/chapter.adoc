@@ -1,0 +1,69 @@
+= Datatyper
+
+Internt i en dator lagras allting som binära tal; 1 eller 0. Att enbart jobba med ettor och nollor när man programmerar hade dock varit väldigt begränsande.
+
+Därför har de flesta programmeringsspråk olika datatyper. Detta innebär att programmeringsspråket tolkar olika kombinationer av ettor och nollor på olika sätt. T.ex kan programmeringsspråket tolka en viss sekvens av ettor och nollor som tecknet "A", och en annan sekvens av ettor och nollor som talet 67. Precis hur detta går till är inte relevant för kursen programmering 1, men om du är nyfiken kan du se https://www.youtube.com/watch?v=wCQSIub_g7M[Tom Scotts "How To Read Text in Binary"].
+
+== Heltal (Integer)
+
+== Strängar (String)
+
+Strängar är datatypen som hanterar text. I ruby skapar man och tilldelar en variabel en en sträng på följande sätt:
+
+[source, {code_lang}, numbered]
+----
+name = "Tom Scott" <1>
+----
+<1> Tilldelar variabeln `name` värdet "Tom Scott" (observera citationstecknen).
+
+Strängar i ruby avgränsas av citationstecken (även kallade dubbelfnuttar).
+
+=== Indexering
+
+Till skillnad från heltal, som enbart innehåller ett enda värde, innehåller strängar i själva verket flera värden. Varje värde (tecken) i en sträng går att komma åt var för sig.
+
+För att kunna bestämma vilket tecken man vill kolla på använder man sig av "index". Detta innebär att man använder tecknets position (index) i strängen för att avgöra vilket tecken man vill kolla på.
+
+Strängen `"Tom Scott"` innehåller 9 tecken ("T", "o", "m", " " (blanksteg), "S", "c", "o", "t", "t").
+Varje tecken har en position (inde)x. Man räknar index från det första tecknet till det sista, men man det första tecknets index är 0.
+
+[source, {code_lang}, numbered]
+----
+name = "Tom Scott"
+#index  012345678
+----
+
+Detta innebär att en strängs sista teckens index alltid är "längden på strängen - 1" (dvs en sträng som är tusen tecken lång har 999 som högsta index).
+
+Index används när man vill kolla på ett enstaka tecken åt gången:
+
+[source, {code_lang}, numbered]
+----
+i = 2
+name = "Tom Scott"
+if name[2] == "m" <1> 
+    output = "The third character is an "m"
+end
+----
+<1> Index avgränsas av hakparenteser (`[` och `]`). Utläses som "tecknet på index 2".
+
+=== Konkatenering
+
+I bland behöver man bygga upp en sträng tecken för tecken. Man slår då ihop (konkatenerar) två olika strängar. Operatorn för att konkatenera två strängar är `+`. Det är lätt att förväxla den med operatorn för att addera två tal, men de gör olika saker. För att konkateneringsoperatorn ska fungera måste både det som står till vänster om operatorn och det som står till höger om operatorn vara strängar.
+
+[source, {code_lang}, numbered]
+----
+output = ""
+first_name = "Tom"
+last_name = "Scot"
+i = 3
+
+output = output + first_name <1>
+output = output + " " <2>
+output = output + last_name <3>
+output = output + last_name[i] <4>
+----
+<1> `output` konkateneras med `first_name` ("Tom") (och blir "Tom").
+<2> `output` konkateneras med " " (och blir "Tom ").
+<3> `output` konkatereras med `last_name` ("Scot") (och blir "Tom Scot").
+<4> `output` konkaneraras med `last_name[i]` ("t") (och blir "Tom Scott"). 

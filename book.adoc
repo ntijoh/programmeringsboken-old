@@ -18,6 +18,9 @@ include::src/chapters/flowcharts/chapter.adoc[leveloffset=+1]
 
 // include::chapters/code/chapter.adoc[leveloffset=+1]
 
+include::src/chapters/datatypes/chapter.adoc[leveloffset=+1]
+
+
 include::src/chapters/toolbox/chapter.adoc[leveloffset=+1]
 
 // include::chapters/assignments/chapter.adoc[leveloffset=+1]
