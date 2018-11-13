@@ -1,5 +1,5 @@
 = Flödesscheman
-För att modellera hur en funktionsmasking fungerar använder vi flödesscheman.
+För att modellera hur en funktionsmaskin fungerar använder vi flödesscheman.
 Flödesscheman består av komponenter som antingen 
 
 * ändrar på state eller 
