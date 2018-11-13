@@ -47,6 +47,18 @@ end
 ----
 <1> Index avgränsas av hakparenteser (`[` och `]`). Utläses som "tecknet på index 2".
 
+Strängar vet alltid hur hur många tecken de innehåller. Man kan fråga en variabel innehållandes en sträng hur många tecken strängen innehåller:
+
+[source, {code_lang}, numbered]
+----
+name = "Tom Scott"
+
+if name.length > 20 <1>
+    output = "That's a very long name"
+end
+----
+<1> `.length` returnerar strängens längd. I det här fallet 9. Villkoret kan alltså (i det här fallet) utläsas som "9 är större än 20").
+
 === Konkatenering
 
 I bland behöver man bygga upp en sträng tecken för tecken. Man slår då ihop (konkatenerar) två olika strängar. Operatorn för att konkatenera två strängar är `+`. Det är lätt att förväxla den med operatorn för att addera två tal, men de gör olika saker. För att konkateneringsoperatorn ska fungera måste både det som står till vänster om operatorn och det som står till höger om operatorn vara strängar.
